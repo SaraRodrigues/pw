@@ -19,5 +19,10 @@ public class BandaDao {
 		return entityManager.find(Banda.class,id);
 	}
 	
+public void excluirBandaPorId(long l){
+	Banda banda = entityManager.find(Banda.class,l);
+	entityManager.remove(banda);
+	
 
+}
 }

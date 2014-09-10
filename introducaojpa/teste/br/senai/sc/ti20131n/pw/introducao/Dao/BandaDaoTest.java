@@ -65,6 +65,13 @@ public class BandaDaoTest {
 		Banda banda = dao.buscarPorId(1L);
 		System.out.println("Nome:"+banda.getNome());
 		assertNotNull(banda);
+		
+        @Test
+		
+		public void exluirABanda1(){
+			dao.exluirBandaPorId(1L);
+			assertNUll(dao.buscarPorId(1L));
+		}
 	}
 	
 	}
