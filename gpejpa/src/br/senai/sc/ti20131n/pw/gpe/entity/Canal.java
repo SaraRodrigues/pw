@@ -1,9 +1,13 @@
 package br.senai.sc.ti20131n.pw.gpe.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Canal {
@@ -11,11 +15,15 @@ public class Canal {
 	@GeneratedValue
 	private Long id;
 	@Column(length=30,nullable=false)
-	private String nome;
+	private static String nome;
 	@Column(unique=true,nullable=false)
 	private Integer numero;
 	private String genero;
 	private Integer classificacao;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<Programa> programa;
+	
 
 	public Long getId() {
 		return id;
@@ -25,8 +33,8 @@ public class Canal {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public static String getNome() {
+		return  nome;
 	}
 
 	public void setNome(String nome) {
